@@ -10,7 +10,7 @@ This repository is a NestJS boilerplate focused on **multi-environment configura
 
 It provides:
 
-- Environment-specific `.env` loading via `@nestjs/config`
+- Environment-specific `.env` loading via `dotenv`
 - Support for layered config files like `.env.common` + `.env.{environment}`
 - Fail-fast validation for required `.env` files on startup
 - Safe, cross-platform file path handling using `path.join`
@@ -84,7 +84,6 @@ $ npm run test:cov
 ## 🛠 Tech Stack
 
 * [NestJS](https://nestjs.com/)
-* [@nestjs/config](https://docs.nestjs.com/techniques/configuration)
 * [dotenv](https://www.npmjs.com/package/dotenv)
 * TypeScript
 
