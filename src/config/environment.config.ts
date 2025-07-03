@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 import * as dotenvExpand from 'dotenv-expand';
 import { join } from 'path';
 import { existsSync } from 'fs';
+import * as Joi from 'joi';
 
 export enum Environment {
   Local = 'development.local',
@@ -30,4 +31,22 @@ export function loadEnvironmentConfig() {
   }
 
   dotenvExpand.expand(dotenv.config({ path: envFilePath }));
+}
+
+const validationSchema = Joi.object({
+  NODE_PORT: Joi.number().port().default(3000),
+});
+
+export function validateEnv() {
+  const { error, value: envVars } = validationSchema.validate(process.env, {
+    abortEarly: false, // show all errors
+    allowUnknown: true, // allow variables not in schema
+    stripUnknown: true, // remove unknowns
+  });
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  process.env = { ...process.env, ...envVars };
 }

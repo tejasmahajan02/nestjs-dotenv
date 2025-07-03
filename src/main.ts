@@ -1,5 +1,6 @@
-import { loadEnvironmentConfig } from './config/environment.config';
+import { loadEnvironmentConfig, validateEnv } from './config/environment.config';
 loadEnvironmentConfig();
+validateEnv();
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
