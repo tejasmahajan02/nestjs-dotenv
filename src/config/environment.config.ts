@@ -1,4 +1,5 @@
 import * as dotenv from 'dotenv';
+import * as dotenvExpand from 'dotenv-expand';
 import { join } from 'path';
 import { existsSync } from 'fs';
 
@@ -28,5 +29,5 @@ export function loadEnvironmentConfig() {
     }
   }
 
-  dotenv.config({ path: envFilePath });
+  dotenvExpand.expand(dotenv.config({ path: envFilePath }));
 }
