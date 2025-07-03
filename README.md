@@ -14,6 +14,8 @@ It provides:
 - Support for layered config files like `.env.common` + `.env.{environment}`
 - Fail-fast validation for required `.env` files on startup
 - Safe, cross-platform file path handling using `path.join`
+- Variable expansion using `dotenv-expand` (e.g., `${BASE_URL}/api`)
+- Runtime validation of required env variables using `joi`
 - Clean and extensible foundation for scalable backend projects
 
 ---
@@ -76,6 +78,8 @@ $ npm run test:cov
 * ✅ Shared `.env.common` for global values
 * ✅ Safe path resolution (`path.join`)
 * ✅ Required file validation on startup
+* ✅ Variable expansion with dotenv-expand
+* ✅ Joi-based validation of environment variables
 * ✅ Clean and minimal NestJS starter
 * ✅ Easily extendable config logic
 
@@ -85,6 +89,8 @@ $ npm run test:cov
 
 * [NestJS](https://nestjs.com/)
 * [dotenv](https://www.npmjs.com/package/dotenv)
+* [dotenv-expand](https://www.npmjs.com/package/dotenv-expand)
+* [joi](https://www.npmjs.com/package/joi)
 * TypeScript
 
 ---
